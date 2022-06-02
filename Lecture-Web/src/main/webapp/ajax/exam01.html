@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #msgView{
+            width: 500px;
+            height: 200px;
+            border: 1px solid red;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('button').click(function(){
+                /*
+                    url     : 요청주소(문자열)
+                    type    : 요청 메소드(문자열)
+                    data    : 파라미터(문자열, 객체)
+                    success : 수식 성공(함수)
+                    error   : 수신 실패(함수)
+                */
+                $.ajax({
+                    url : 'hello.html',
+                    success : function(data){
+                        $('#msgView').append(data)
+                    },error : function(){
+                        alert('실패')
+                    }
+                    
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <h2>서버에서 받은 메세지</h2>
+    <div id="msgView"></div>
+    <button>서버에 자료 요청</button>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>exam03</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script>
+		$(document).ready(function(){
+			// innerHTML : 태그까지 다 가져오고, innerText : 글자만 가져온다
+			let html = $('p').html()
+			let text = $('p').eq(1).text()		// text는 다 가져와서 하나만 가져오고 싶으면 지정을 해줘야 함
+			let attr = $('a').attr('href')
+			
+			alert('html : ' + html + '\ntext : ' + text + '\n주소 : ' + attr)
+			
+			$('#btn01').click(function(){
+				let name = $('#name').val()
+				alert('name : ' + name)
+			})
+			
+			$('#btn02').click(function(){
+				$('a').attr('href', 'http://www.daum.net')
+			})
+			
+			$('#btn03').click(function(){
+				$('p').eq(0).html('<mark>문장변환</mark>')
+			})
+			
+		})
+	</script>
+</head>
+<body>
+	<p>내 이름은 <b>홍길동</b>이고, 별명은 <i>의적</i>입니다.</p>
+	<p>내 이름은 <strong>홍길순</strong>이고, 별명은 <em>의적2</em>입니다.</p>
+	이름 : <input type = "text" id="name" autofocus><button id="btn01">입력완료</button>
+	<br>
+	<a href = "http://www.naver.com">사이트로 이동</a><button id="btn02">주소변경</button>
+	<br>
+	<button id="btn03">문장변환</button>
+</body>
+</html>

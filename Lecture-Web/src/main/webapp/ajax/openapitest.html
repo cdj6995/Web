@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Chart</title>
+    <style>
+        #searchResult{
+            width: 70%;
+            border: 2px solid red;
+            padding: 0 10px;
+        }
+
+        .show{
+            display: block;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+            $("#searchBtn").click(function(){
+                
+                let searchDate = $('#searchDate').val().split('-').join('')
+
+                $.ajax({
+                    type : 'get',
+                    url : 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json',
+
+                    data : {
+                        key : 'c708c2c344aac98b460409cbca275387',
+                        targetDt : searchDate
+                    }, success : collback,
+                    error : function(){
+                        alert('실패')
+                    }
+                })
+            })
+            
+            $(document).on('click', '#detail', function() {
+                let movieCd = $(this).attr("class")
+                console.log(movieCd)
+                $.ajax({
+                    type : 'get',
+                    url : 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json',
+                    data : {
+                        key : 'c708c2c344aac98b460409cbca275387',
+                        movieCd : movieCd
+                    }, success : collback2,
+                    error : function(){
+                        alert('실패')
+                    }
+                    
+                })
+            })
+        })
+
+        function collback(result){
+            let list = result.boxOfficeResult.dailyBoxOfficeList
+            $('#searchResult').empty()
+
+            for(let i = 0; i < 5; i++){
+                let rank = list[i].rank
+                let name = list[i].movieNm
+                let audiCnt = list[i].audiCnt
+                let movieCd = list[i].movieCd
+
+                $('#searchResult').append('<h4>' + rank + '위</h4>')
+                $('#searchResult').append(`<strong>${name}</strong>`)
+                $('#searchResult').append(`(${audiCnt}명)`)
+                // 각 영화에 고유한 값을 주기위해 영화코드를 각각 준다.
+                $('#searchResult').append(`<br><button id="detail" class="${movieCd}">상세보기</button>`)
+                $('#searchResult').append(`<div id="detailResult${movieCd}"></div>`)    
+                $('#searchResult').append('<hr>')
+            }
+        }
+
+        // 클래스에 show가 있으면 div공간을 비우고 숨긴다.
+        // 클래스에 show가 없으면 추가 시키고 보이게 하면서 데이터를 넣는다.
+        function collback2(input){
+            let list = input.movieInfoResult.movieInfo
+            
+            let directors = list.directors
+            let genres = list.genres
+            let actors = list.actors
+            let movieCd = list.movieCd
+            
+            if($(`#detailResult${movieCd}`).hasClass("show")){
+                $(`#detailResult${movieCd}`).removeClass("show")
+                $(`#detailResult${movieCd}`).empty()
+                $(`#detailResult${movieCd}`).hide()
+            }else{
+                $(`#detailResult${movieCd}`).addClass("show")
+                $(`#detailResult${movieCd}`).show()
+    
+                $(`#detailResult${movieCd}`).css({
+                    'border' : '1px solid blue',
+                    'margin-top' : '5px',
+                    'padding' : '5px 5px',
+                })
+                
+                $(`#detailResult${movieCd}`).append(`감독 : ${directors[0].peopleNm}<br>`)
+                $(`#detailResult${movieCd}`).append(`장르 : `)
+                for(let j = 0; j < genres.length; j++){
+                    $(`#detailResult${movieCd}`).append(`${genres[j].genreNm} `)
+                }
+    
+                $(`#detailResult${movieCd}`).append(`<br>배우정보<br>`)
+                for(let i = 0; i < actors.length; i++){
+                    $(`#detailResult${movieCd}`).append(`${actors[i].peopleNm}(${actors[i].cast})<br>`)
+                }
+            }
+
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <h2>일별 박스오피스 조회 서비스</h2>
+    조회날짜 : <input type="date" id="searchDate">
+    <button id="searchBtn">조회</button>
+    <h3>조회 결과</h3>
+    <div id="searchResult">
+
+    </div>
+</body>
+</html>

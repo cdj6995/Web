@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>exam03</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script>
+		$(document).ready(function(){
+			// innerHTML : 태그까지 다 가져오고, innerText : 글자만 가져온다
+			let html = $('p').html()
+			let text = $('p').text()
+			
+			alert('html : '+ html + '\ntext : ' + text)
+			
+			$('button').click(function(){
+				alert("!!!");
+			})
+		})
+	</script>
+</head>
+<body>
+	<p>내 이름은 <b>홍길동</b>이고, 별명은 <i>의적</i>입니다.</p>
+	<p>
+		내 이름은 <strong>홍길순</strong>이고, 별명은 <em>의적2</em>입니다.
+	</p>
+	이름 : <input type = "text" id="name" autofocus><button>입력완료</button>
+</body>
+</html>

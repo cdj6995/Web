@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<style>
+		img{
+			width : 240px;
+			height : 200px;
+			float: left;
+		}
+		
+		button{
+			height : 200px;
+			float : left;
+		}
+	</style>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script>
+		$(document).ready(function() {
+			
+			$('#preBtn').click(function() {
+				$('img').first().appendTo('span')
+			})
+			
+			$('#nextBtn').click(function() {
+				$('img').last().prependTo('span')
+			})
+		})
+	</script>
+</head>
+<body>
+	<button id="preBtn">PREV</button>
+	<span>
+		<img src="image/사진01.jpg">
+		<img src="image/사진02.jpg">
+		<img src="image/사진03.jpg">
+		<img src="image/사진04.jpg">	
+	</span>
+	<button id="nextBtn">NEXT</button>
+</body>
+</html>

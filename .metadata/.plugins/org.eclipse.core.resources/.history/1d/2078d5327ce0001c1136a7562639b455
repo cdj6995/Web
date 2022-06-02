@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('button').click(function() {
+				$('img').last().prependTo('div')
+			})
+		})
+	</script>
+</head>
+<body>
+	<button id="preBtn">PREV</button>
+	<div>
+		<img src="image/사진01.jpg">
+		<img src="image/사진02.jpg">
+		<img src="image/사진03.jpg">
+		<img src="image/사진04.jpg">	
+	</div>
+	<button id="nextBtn">NEXT</button>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #searchResult{
+            width: 60%;
+            height: 500px;
+            border: 1px solid red;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            $("#searchBtn").click(function(){
+                
+                $.ajax({
+                    type : 'get',
+                    url : 'http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json',
+                    data : {
+                        key : 'c708c2c344aac98b460409cbca275387',
+                        targetDt : '20220531'
+                    }, success : collback,
+                    error : function(){
+                        alert('실패')
+                    }
+                })
+            })
+        })
+
+        function collback(result){
+            console.log(result)
+            let list = result.boxOfficeResult.dailyBoxOfficeList
+            console.log(list)
+
+            for(let i = 0; i < list.length; i++){
+                let rank = list[i].rank
+                let name = list[i].movieNm
+                let audiCnt = list[i].audiCnt
+
+                $('#searchResult').append('<h4>' + rank + '위<h4>')
+                $('#searchResult').append(`<strong>${name}</strong>`)
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <h2>일별 박스오피스 조회 서비스</h2>
+    조회날짜 : <input type="date" id="searchDate">
+    <button id="searchBtn">조회</button>
+    <h3>조회 결과</h3>
+    <div id="searchResult">
+
+    </div>
+</body>
+</html>
