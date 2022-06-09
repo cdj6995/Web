@@ -1,0 +1,23 @@
+package kr.ac.kopo.servlet;
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int N = Integer.parseInt(sc.next());
+		int M = Integer.parseInt(sc.next());
+		
+		String[] chess = new String[N];
+		String[][] chess2 = new String[N][M];
+		
+		for(int i = 0; i < N; i++) {
+			chess[i] = sc.nextLine();
+		}
+		
+		for(int i = 0; i < N; i++) {
+			System.out.println(chess[i]);
+		}
+		
+	}
+}

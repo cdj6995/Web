@@ -1,0 +1,26 @@
+<%@page import="java.util.Map"%>
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+
+	String[] str = {"성공","B"};
+	Map<String, String[]> map = new HashMap<>();
+	map.put("title", str);
+	
+	pageContext.setAttribute("boardList", map);
+	
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	성공/실패? ${ boardList[0].title }<br>
+</body>
+</html>

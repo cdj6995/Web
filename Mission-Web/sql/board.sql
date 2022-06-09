@@ -10,6 +10,9 @@ create table t_board(
 
 create sequence seq_t_board_no;
 
+alter sequence seq_t_board_no nocache;
+
+
 select * from t_board;
 
 insert into t_board(no, title, writer, content)

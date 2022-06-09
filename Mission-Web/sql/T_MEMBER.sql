@@ -1,4 +1,6 @@
 -- type : s(슈퍼유저), u(일반유저)
+DROP TABLE T_MEMBER;
+
 CREATE TABLE T_MEMBER(
 	ID 				VARCHAR2(20) PRIMARY KEY,
     NAME 			VARCHAR2(20) NOT NULL,
@@ -14,14 +16,17 @@ CREATE TABLE T_MEMBER(
     TYPE            CHAR(1) default 'U',
     REG_DATE 		DATE default sysdate
 );
-
 SELECT * FROM T_MEMBER;
 
-insert into t_member(id, name, password)
- values('AA','홍길동','123456');
-insert into t_member(id, name, password)
- values('BB','박길동','123457');
-insert into t_member(id, name, password)
- values('CC','고길동','123458');
+SELECT tel1||'-'||tel2||'-'||tel3 as tel FROM T_MEMBER;
+
+insert into t_member
+ values('myid','홍길동','SECRET123','AAA','naver.com','010','1234','5678','12345','경기도 광명시','폴리텍대학 1층','U',sysdate);
+insert into t_member
+ values('yourid','김길동','SECRET127','BBB','daum.net','010','5678','1324','12345','경기도 광명시','폴리텍대학 3층','U',sysdate);
+insert into t_member
+ values('ourid','박길동','SECRET125','CCC','gmail.com','010','1111','1593','12345','경기도 광명시','폴리텍대학 4층','U',sysdate);
+insert into t_member
+ values('kingid','홍길동','SECRET789','ZZZ','naver.com','010','9999','8888','12345','경기도 광명시','폴리텍대학 2층','M',sysdate);
  
 commit;

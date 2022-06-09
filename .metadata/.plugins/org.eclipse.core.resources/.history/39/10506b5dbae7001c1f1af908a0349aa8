@@ -1,0 +1,23 @@
+<%@page import="kr.ac.kopo.member.vo.MemberVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%
+	request.setCharacterEncoding("utf-8");
+
+	String id = request.getParameter("id");
+	String name = request.getParameter("name");
+	String passowrd = request.getParameter("password");
+	String email = request.getParameter("email");
+	String tel = request.getParameter("tel");
+	String post = request.getParameter("post");
+	String addr = request.getParameter("addr");
+	
+	MemberVO member = new MemberVO();
+
+%>
+    
+<script>
+	alert("회원 등록이 성공적으로 이루어졌습니다.")
+	location.href = "list.jsp"
+</script>
