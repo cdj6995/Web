@@ -47,7 +47,6 @@ public class MemberDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		return list;
 	}
 	
@@ -139,5 +138,41 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 	}
-}
 
+	/**
+	 * 로그인 하기
+	 */
+	public MemberVO login(MemberVO member) {
+		
+		StringBuilder sql = new StringBuilder();
+		sql.append(" select id, password, name, type ");
+		sql.append(" from t_member ");
+		sql.append(" where id = ? and password = ? ");
+		
+		try (
+			Connection conn = new ConnectionFactory().getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+		) {
+			pstmt.setString(1, member.getId());
+			pstmt.setString(2, member.getPassword());
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				MemberVO userVO = new MemberVO();
+				
+				userVO.setId(rs.getString("id"));
+				userVO.setPassword(rs.getString("password"));
+				userVO.setName(rs.getString("name"));
+				userVO.setType(rs.getString("type"));
+				
+				return userVO;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+}

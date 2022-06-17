@@ -22,3 +22,30 @@ insert into t_board(no, title, writer, content)
  values(seq_t_board_no.nextval, '제목입니다2','홍길동','내용입니다2');
  
  commit;
+ 
+ 
+ -- 첨부파일 테이블
+ create table t_board_file(
+            no              number(10)   primary key,
+            board_no        number(10) not null,
+            file_ori_name   varchar2(100),
+            file_save_name  varchar2(200),
+            file_size       number(10) );
+            
+create sequence seq_t_board_file_no nocache;
+
+
+select * from t_board;
+select * from t_board_file;
+
+commit;
+
+
+
+
+
+
+
+
+
+

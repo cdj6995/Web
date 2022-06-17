@@ -8,7 +8,7 @@ public class MemberVO {
 	private String tel;
 	private String post;
 	private String addr;
-	private String type;
+	private String type;			// "M" 관리자, "U" 일반사용자
 	private String regDate;
 	
 	public MemberVO() {}
@@ -108,6 +108,14 @@ public class MemberVO {
 	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
+
+
+	@Override
+	public String toString() {
+		return "MemberVO [id=" + id + ", name=" + name + ", password=" + password + ", email=" + email + ", tel=" + tel
+				+ ", post=" + post + ", addr=" + addr + ", type=" + type + ", regDate=" + regDate + "]";
+	}
+	
 	
 	
 }

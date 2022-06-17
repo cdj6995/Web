@@ -1,0 +1,10 @@
+package kr.ac.kopo.board.vo;
+
+public class BoardFileVO {
+	
+	private int no;
+	private int boardNo;
+	private String fileOriName;
+	private String fileSaveName;
+	private int fileSize;
+}

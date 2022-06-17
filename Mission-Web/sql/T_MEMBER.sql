@@ -29,4 +29,9 @@ insert into t_member
 insert into t_member
  values('kingid','홍길동','SECRET789','ZZZ','naver.com','010','9999','8888','12345','경기도 광명시','폴리텍대학 2층','M',sysdate);
  
+
+update t_member set type = 'S' where id = 'kingid'; 
+ 
 commit;
+
+select * from t_board;
