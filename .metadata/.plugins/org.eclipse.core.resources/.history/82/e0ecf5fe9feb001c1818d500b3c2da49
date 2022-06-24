@@ -1,7 +1,0 @@
-package kr.ac.kopo.member;
-
-public class MemberVO {
-	
-	private String id;
-	private String password;
-}

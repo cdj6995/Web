@@ -1,9 +1,0 @@
-package kr.ac.kopo.board.vo;
-
-public class BoardFileVO {
-	
-	private int no;
-	private int boardNo;
-	private String fileOriname;
-	private String fileSaveName
-}
