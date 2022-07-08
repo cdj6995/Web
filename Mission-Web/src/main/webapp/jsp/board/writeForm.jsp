@@ -8,6 +8,7 @@
 	<title>Insert title here</title>
 	<link rel="stylesheet" href="/Mission-Web/resources/css/layout.css">
 	<link rel="stylesheet" href="/Mission-Web/resources/css/table.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 	<script>
 		$(document).ready(function() {
@@ -79,26 +80,26 @@
 			<input type="hidden" name="writer" value="${ userVO.id }">
 			<table border="1" style="width : 80%">
 				<tr>
-					<th width="25%">제목</th>
+					<th class="bg-dark text-white" width="25%">제목</th>
 					<td>
 						<input type="text" name="title" size="80" >
 					</td>
 				</tr>
 				<tr>
-					<th width="25%">작성자</th>
+					<th class="bg-dark text-white" width="25%">작성자</th>
 					<td>
 						<%-- <input type="text" name="writer" value="${ userVO.id }" readonly> --%>
 						${ userVO.id }						
 					</td>
 				</tr>
 				<tr>
-					<th width="25%">내용</th>
+					<th class="bg-dark text-white" width="25%">내용</th>
 					<td>
 						<textarea rows="10" cols="80" name="content"></textarea>
 					</td>
 				</tr>
 				<tr>
-					<th>첨부파일</th>
+					<th class="bg-dark text-white">첨부파일</th>
 					<td>
 						<input type="file" name="attachfile1"><br>
 						<input type="file" name="attachfile2">

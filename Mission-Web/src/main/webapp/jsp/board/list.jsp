@@ -28,7 +28,8 @@
 	<meta charset="UTF-8">
 	<title>게시물 목록</title>
 	<link rel="stylesheet" href="/Mission-Web/resources/css/layout.css">
-	<link rel="stylesheet" href="/Mission-Web/resources/css/table.css">
+<!-- 	<link rel="stylesheet" href="/Mission-Web/resources/css/table.css"> -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 	<script>
 		$(document).ready(function() {
@@ -64,34 +65,38 @@
 		<h2>전체 게시글 조회</h2>
 		<hr>
 		<br>
-		<table border="1" style = "width : 80%">
-			<tr>
-				<th width = 7%>번호</th>
-				<th>제목</th>
-				<th width="17%">작성자</th>
-				<th width="10%">조회수</th>
-				<th width="20%">등록일</th>
-			</tr>
-			<c:forEach var="board" items="${ list }" varStatus="loop">
-				<tr align="center" <c:if test="${ loop.count mod 2 eq 0 }">class="even"</c:if>>
-					<td>${ board.no }</td>
-					<td>
-						<a href="javascript:checkLogin(${board.no},${board.viewCnt})">
-							<c:out value="${ board.title }"/>
-						</a>
-					
-						<%-- 
-						<a href="detail.jsp?no=${ board.no }&viewCnt=${ board.viewCnt }">
-							<c:out value="${ board.title }"/>
-						</a>
-						 --%>
+		<table class="table table-dark" style = "width : 80%">
+			<thead>
+				<tr>
+					<th width = 7%>번호</th>
+					<th>제목</th>
+					<th width="17%">작성자</th>
+					<th width="10%">조회수</th>
+					<th width="20%">등록일</th>
+				</tr>			
+			</thead>
+			<tbody>
+				<c:forEach var="board" items="${ list }" varStatus="loop">
+					<tr align="center" <c:if test="${ loop.count mod 2 eq 0 }">class="even"</c:if>>
+						<td>${ board.no }</td>
+						<td>
+							<a class="text-light text-decoration-none" href="javascript:checkLogin(${board.no},${board.viewCnt})">
+								<c:out value="${ board.title }"/>
+							</a>
 						
-					</td>
-					<td> <c:out value="${ board.writer }"/></td>
-					<td>${ board.viewCnt }</td>
-					<td>${ board.regDate }</td>
-				</tr>		
-			</c:forEach>
+							<%-- 
+							<a href="detail.jsp?no=${ board.no }&viewCnt=${ board.viewCnt }">
+								<c:out value="${ board.title }"/>
+							</a>
+							 --%>
+							
+						</td>
+						<td> <c:out value="${ board.writer }"/></td>
+						<td>${ board.viewCnt }</td>
+						<td>${ board.regDate }</td>
+					</tr>		
+				</c:forEach>			
+			</tbody>
 		</table>
 		<br>
 		<c:if test="${ not empty userVO }">	

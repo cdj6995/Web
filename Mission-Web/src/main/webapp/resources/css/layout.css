@@ -10,21 +10,19 @@ body{
 
 header{
 	margin : 1%;
-	margin-left : 15%;
-	margin-right : 15%;
+	margin-left : 5%;
+	margin-right : 5%;
 	height : 60px;
 }
 
 section{
-	margin-left : 17%;
+	margin-left : 10%;
 	margin-right : 17%;
 	min-height : 750px;
 }
 
 footer{
-	margin-left : 15%;
-	margin-right : 15%;
+	margin-left : 5%;
+	margin-right : 5%;
 	padding : 20px;
-	background-color: lightgray;
-	
 }

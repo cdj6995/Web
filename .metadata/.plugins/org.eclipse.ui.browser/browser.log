@@ -77,3 +77,14 @@
 6월 15, 2022 17:21:57.357 [2916:612:0615/172157.357:ERROR:interface_endpoint_client.cc(665)] Message 1 rejected by interface blink.mojom.WidgetHost
 6월 15, 2022 17:37:56.174 [2916:612:0615/173756.174:ERROR:device_event_log_impl.cc(214)] [17:37:56.174] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: 요소가 없습니다. (0x490)
 6월 15, 2022 19:04:20.774 [2916:6388:0615/190420.773:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+
+6월 29, 2022 13:04:15.200 NEW SESSION
+6월 29, 2022 13:04:15.200 [10016:13688:0629/130415.195:ERROR:device_event_log_impl.cc(214)] [13:04:15.195] Bluetooth: bluetooth_adapter_winrt.cc:1074 Getting Default Adapter failed.
+6월 29, 2022 13:05:13.52 [10016:3208:0629/130513.052:ERROR:util.cc(127)] Can't create base directory: C:\Program Files\Google\GoogleUpdater
+6월 29, 2022 14:02:41.170 [10016:13688:0629/140241.170:ERROR:interface_endpoint_client.cc(665)] Message 0 rejected by interface blink.mojom.WidgetHost
+6월 29, 2022 14:03:29.147 [10016:13688:0629/140329.147:ERROR:interface_endpoint_client.cc(665)] Message 0 rejected by interface blink.mojom.WidgetHost
+6월 29, 2022 14:04:06.510 [10016:13688:0629/140406.510:ERROR:interface_endpoint_client.cc(665)] Message 0 rejected by interface blink.mojom.WidgetHost
+6월 29, 2022 14:04:36.210 [10016:13688:0629/140436.210:ERROR:interface_endpoint_client.cc(665)] Message 0 rejected by interface blink.mojom.WidgetHost
+6월 29, 2022 14:13:51.780 [10016:13688:0629/141351.779:ERROR:interface_endpoint_client.cc(665)] Message 0 rejected by interface blink.mojom.WidgetHost
+6월 29, 2022 14:14:59.25 [10016:13688:0629/141459.025:ERROR:interface_endpoint_client.cc(665)] Message 0 rejected by interface blink.mojom.WidgetHost
+6월 29, 2022 15:14:56.974 [10016:13688:0629/151456.974:ERROR:interface_endpoint_client.cc(665)] Message 0 rejected by interface blink.mojom.WidgetHost

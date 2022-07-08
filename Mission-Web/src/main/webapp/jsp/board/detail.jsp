@@ -43,6 +43,7 @@
 	<title>Insert title here</title>
 	<link rel="stylesheet" href="/Mission-Web/resources/css/layout.css">
 	<link rel="stylesheet" href="/Mission-Web/resources/css/table.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 	<script>
 		function doAction(type){
 			switch (type) {
@@ -70,35 +71,35 @@
 		<hr>
 		<h2>게시판 상세</h2>
 		<hr>
-		<table border="1" style = "width : 80%">
+		<table class="table table-dark" style = "width : 80%">
 			
 			<tr>
-				<th width="25%">번호</th>
-				<th>${ board.no }</th>
+				<th class="text-light" width="25%">번호</th>
+				<th class="text-light">${ board.no }</th>
 			</tr>
 			<tr>
-				<th width="25%">제목</th>
-				<th> <c:out value="${ board.title }"/></th>
+				<th class="text-light" width="25%">제목</th>
+				<th class="text-light"> <c:out value="${ board.title }"/></th>
 			</tr>
 			<tr>
-				<th width="25%">작성자</th>
-				<th><c:out value="${ board.writer }"/></th>
+				<th class="text-light" width="25%">작성자</th>
+				<th class="text-light"><c:out value="${ board.writer }"/></th>
 			</tr>
 			<tr>
-				<th width="25%">조회수</th>
-				<th>${ board.viewCnt }</th>
+				<th class="text-light" width="25%">조회수</th>
+				<th class="text-light">${ board.viewCnt }</th>
 			</tr>
 			<tr>
-				<th width="25%">등록일</th>
-				<th>${ board.regDate }</th>
+				<th class="text-light" width="25%">등록일</th>
+				<th class="text-light">${ board.regDate }</th>
 			</tr>
 			<tr>
-				<th width="25%">내용</th>
-				<th><c:out value="${ board.content }"/></th>
+				<th class="text-light" width="25%">내용</th>
+				<th class="text-light"><c:out value="${ board.content }"/></th>
 			</tr>
 			<tr>
-				<th>첨부파일</th>
-				<td>
+				<th class="text-light">첨부파일</th>
+				<td class="text-light">
 					<c:forEach items="${ fileList }" var="fileVO">
 						<a href="/Mission-Web/upload/${ fileVO.fileSaveName }">
 							${ fileVO.fileOriName }
@@ -110,8 +111,10 @@
 			</tr>
 		</table>
 		<br>
-		<button onclick="doAction('U')">수 정</button>&nbsp;&nbsp;
-		<button onclick="doAction('D')">삭 제</button>&nbsp;&nbsp;
+		<c:if test="${ userVO.type eq 'S' || userVO.id eq board.writer }">
+			<button onclick="doAction('U')">수 정</button>&nbsp;&nbsp;
+			<button onclick="doAction('D')">삭 제</button>&nbsp;&nbsp;
+		</c:if>
 		<button onclick="doAction('L')">목 록</button>&nbsp;&nbsp;
 	</div>
 	</section>
