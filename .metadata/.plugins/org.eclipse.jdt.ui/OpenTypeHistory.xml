@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
     <typeInfo handle="=Lecture-Web/D:\/Lecture\/web-workspace\/Lecture-Web\/src\/main\/webapp\/WEB-INF\/lib\/servlet-api.jar&lt;javax.servlet.http(HttpServlet.class[HttpServlet" modifiers="1057" timestamp="1654130100651"/>
+    <typeInfo handle="=Mission-MVC/src\/main\/java&lt;kr.ac.kopo.controller{Controller.java[Controller" modifiers="513" timestamp="1657507535420"/>
+    <typeInfo handle="=Mini-Pjt/src\/main\/java&lt;kr.ac.kopo.controller{Controller.java[Controller" modifiers="513" timestamp="1657679646661"/>
 </typeInfoHistroy>

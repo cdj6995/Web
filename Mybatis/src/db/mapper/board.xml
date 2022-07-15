@@ -7,7 +7,7 @@
    <!-- <result column="no" property="no"/>
 		<result column="title" property="title"/>
 		<result column="writer" property="writer"/>
-		<result column="contene" property="content"/> -->
+		<result column="content" property="content"/> -->
 		<result column="view_cnt" property="viewCnt"/>
 		<result column="reg_date" property="regDate"/>
 	</resultMap>
