@@ -16,7 +16,7 @@
 	<header>
 		<jsp:include page="/jsp/include/topMenu.jsp"></jsp:include>
 	</header>
-	
+
     <!-- Carousel Start -->
     <div class="container-fluid p-0 wow fadeIn" data-wow-delay="0.1s">
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
@@ -46,7 +46,6 @@
                                     		<a href="${ pageContext.request.contextPath }/accountSelect.do" class="btn btn-primary text-dark py-sm-3 px-sm-5 fw-bolder">계좌조회</a>
                                     		<a href	="${ pageContext.request.contextPath }/transfer.do" class="btn btn-light py-sm-3 px-sm-5 ms-3 fw-bolder">이체</a>
                                     	</c:otherwise>
-                                    
                                     </c:choose>
                                 </div>
                             </div>

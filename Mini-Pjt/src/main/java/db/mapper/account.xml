@@ -4,10 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="dao.AccountDAO">
-	<resultMap type="accountVO" id="accountMap">
+	<resultMap type="AccountVO" id="accountMap">
    		<result column="accountno" property="accountNo"/>
 		<result column="bank_code" property="bankCode"/>
 		<result column="id" property="id"/>
+		<result column="tel" property="tel"/>
 		<result column="type" property="type"/>
 		<result column="name" property="name"/>
 		<result column="password" property="password"/>
@@ -15,8 +16,8 @@
 	</resultMap>
 
 	<insert id="insertAccount" parameterType="AccountVO">
-		insert into pjt_account(accountno, id, type, name, password)
-		 values(#{accountNo}, #{id}, #{type}, #{name}, #{password})
+		insert into pjt_account(accountno, id, tel, type, name, password)
+		 values(#{accountNo}, #{id}, #{tel}, #{type}, #{name}, #{password})
 	</insert>
 	
 
@@ -27,8 +28,28 @@
 	
 	<select id="selectById" resultType="AccountVO" parameterType="string">
 		<include refid="selectAll" />
-		where id = #{id}
+		where tel = #{tel}
 	</select>
+	
+	<select id="selectById1" resultType="AccountVO" parameterType="string">
+		select account_number as accountno, bank_code as bankCode, id, tel, 'jBank' as type, '모임 통장' as name, account_password as password, balance
+		 from jbank_account@D001
+		 where tel = #{tel}
+	</select>
+	
+	<select id="selectById2" resultType="AccountVO" parameterType="string">
+		select accountnum as accountno, bankcode as bankCode, id, phonenumber as tel, 'SUNNY뱅크' as type, alias as name, accpwd as password, balance
+		 from account@D002
+		 where phonenumber = #{tel}
+	</select>
+	
+	<select id="selectById4" resultType="AccountVO" parameterType="string">
+		select account as accountno, bank_code as bankCode, id, balance, 'MORE뱅크' as type, account_name as name, account_pw as password
+		 from account@D004
+		 where tel = #{tel}
+	</select>
+	 
+
 	
 	<select id="selectOne" resultType="AccountVO" parameterType="string">
 		<include refid="selectAll" />
@@ -36,13 +57,26 @@
 	</select>
 	
 	
-	<update id="plusTransfer" parameterType="map">
-		update pjt_account set balance = balance + to_number(#{balance}) where accountno = #{accountNo}
-	</update>
 	<update id="minusTransfer" parameterType="map">
 		update pjt_account set balance = balance - to_number(#{balance}) where accountno = #{accountNo}
 	</update>
+	<update id="plusTransfer" parameterType="map">
+		update pjt_account set balance = balance + to_number(#{balance}) where accountno = #{accountNo}
+	</update>
 
+
+	<update id="minusTransferOther" parameterType="map">
+		update pjt_account set balance = balance - to_number(#{balance}) where accountno = #{accountNo}
+	</update>
+	<update id="plusTransferOther4" parameterType="map">
+		update account@${bankCode} set balance = balance + to_number(#{balance}) where account = #{accountNo}
+	</update>
+	<update id="plusTransferOther2" parameterType="map">
+		update account@${bankCode} set balance = balance + to_number(#{balance}) where accountnum = #{accountNo}
+	</update>
+	<update id="plusTransferOther1" parameterType="map">
+		update jbank_account@${bankCode} set balance = balance + to_number(#{balance}) where account_number = #{accountNo}
+	</update>
 
 <!-- 
 

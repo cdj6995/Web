@@ -4,6 +4,7 @@ public class AccountVO {
 	private String accountNo;
 	private String bankCode;
 	private String id;
+	private String tel;
 	private String type;
 	private String name;
 	private String password;
@@ -13,12 +14,13 @@ public class AccountVO {
 		super();
 	}
 
-	public AccountVO(String accountNo, String bankCode, String id, String type, String name, String password,
-			int balance) {
+	public AccountVO(String accountNo, String bankCode, String id, String tel, String type, String name,
+			String password, int balance) {
 		super();
 		this.accountNo = accountNo;
 		this.bankCode = bankCode;
 		this.id = id;
+		this.tel = tel;
 		this.type = type;
 		this.name = name;
 		this.password = password;
@@ -47,6 +49,14 @@ public class AccountVO {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
 
 	public String getType() {
@@ -83,9 +93,8 @@ public class AccountVO {
 
 	@Override
 	public String toString() {
-		return "AccountVO [accountNo=" + accountNo + ", bankCode=" + bankCode + ", id=" + id + ", type=" + type
-				+ ", name=" + name + ", password=" + password + ", balance=" + balance + "]";
+		return "AccountVO [accountNo=" + accountNo + ", bankCode=" + bankCode + ", id=" + id + ", tel=" + tel
+				+ ", type=" + type + ", name=" + name + ", password=" + password + ", balance=" + balance + "]";
 	}
-	
-	
+
 }

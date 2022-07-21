@@ -23,15 +23,24 @@ public class AccountSelectController implements Controller {
 		if(session.getAttribute("userVO") != null) {
 			MemberVO userVO = (MemberVO)session.getAttribute("userVO");
 			
-			String id = userVO.getId();
-			
+			String openBank = userVO.getOpenBank();
+			String tel = userVO.getTel();
 			service = new AccountService();
-			List<AccountVO> accountList = service.searchAccount(id);
+
+			if(openBank.equals("T")) {
+				List<AccountVO> accountList = service.searchOpenAccount(tel);
+				
+				request.setAttribute("accountList", accountList);		
+			}else {
+				List<AccountVO> accountList = service.searchAccount(tel);
+				
+				request.setAttribute("accountList", accountList);
+			}
 			
-			request.setAttribute("accountList", accountList);
+			return "/jsp/account/accountSelect.jsp";			
 			
 		}
-		return "/jsp/account/accountSelect.jsp";			
+		return "redirect:/login.do";
 	}
 
 }

@@ -7,6 +7,7 @@ public class MemberVO {
 	private String gender;
 	private String tel;
 	private String email;
+	private String openBank;
 	private String post;
 	private String addr;
 	private String detailaddr;
@@ -24,7 +25,7 @@ public class MemberVO {
 	}
 
 	
-	public MemberVO(String id, String name, String password, String gender, String tel, String email, String post,
+	public MemberVO(String id, String name, String password, String gender, String tel, String email, String openBank, String post,
 			String addr, String detailaddr, String regDate) {
 		super();
 		this.id = id;
@@ -33,10 +34,22 @@ public class MemberVO {
 		this.gender = gender;
 		this.tel = tel;
 		this.email = email;
+		this.openBank = openBank;
 		this.post = post;
 		this.addr = addr;
 		this.detailaddr = detailaddr;
 		this.regDate = regDate;
+	}
+
+	
+	
+	public String getOpenBank() {
+		return openBank;
+	}
+
+
+	public void setOpenBank(String openBank) {
+		this.openBank = openBank;
 	}
 
 
@@ -143,11 +156,8 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [id=" + id + ", name=" + name + ", password=" + password + ", gender=" + gender + ", tel="
-				+ tel + ", email=" + email + ", post=" + post + ", addr=" + addr + ", detailaddr=" + detailaddr
-				+ ", regDate=" + regDate + "]";
+				+ tel + ", email=" + email + ", openBank=" + openBank + ", post=" + post + ", addr=" + addr
+				+ ", detailaddr=" + detailaddr + ", regDate=" + regDate + "]";
 	}
 
-	
-	
-	
 }

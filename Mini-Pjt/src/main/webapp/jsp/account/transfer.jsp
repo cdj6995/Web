@@ -31,8 +31,9 @@
 			               <div class="row g-3">
 			               	   <div class="col-md-12">
 			                       <div class="form-floating">
-			                           <input type="text" class="form-control border-0 bg-light" name="bankname" placeholder="Your Name" readonly>
-			                           <label class="text-dark fw-bolder" for="bankname">DJ Bank</label>
+			                       	   <input type="hidden" name="bankname" value="DJ Bank" >	
+			                           <input type="text" class="form-control border-0 bg-light" name="banknamee" placeholder="DJ Bank" readonly>
+			                           <label class="text-dark fw-bolder" for="banknamee">DJ Bank</label>
 			                       </div>
 			                   </div>
 			                   <div class="col-md-12">
@@ -50,12 +51,18 @@
 			                       </select>
 			                   </div>
 			                   <div class="col-md-12">
+			                   	<%-- 
 			                       <select name="receive" class="form-control border-0 bg-light">
 			                           <option class="form-control border-0 bg-light" value="none">입금 계좌번호</option>
 			                           <c:forEach items="${ accountList }" var="account">
 				                           <option class="form-control border-0 bg-light" value="${ account.accountNo }">${ account.accountNo }</option>			                           
 			                           </c:forEach>
 			                       </select>
+			                        --%>
+			                       <div class="form-floating">
+			                           <input type="text" class="form-control border-0 bg-light" name="receive" placeholder="입금 계좌번호">
+			                           <label for="receive">입금 계좌번호</label>
+			                       </div>
 			                   </div>
 			                   <div class="col-md-12">
 			                       <div class="form-floating">
@@ -77,14 +84,14 @@
 			       </div>
 	               <div class="col-lg-6 wow fadeInUp text-center my-5" data-wow-delay="0.5s">
 			           <h1 class="display-6 mb-4">타행 이체</h1>
-			           <form action="${ pageContext.request.contextPath }/makeAccountProcess.do" method="post" name="signup" onsubmit="return checkForm()">
+			           <form action="${ pageContext.request.contextPath }/transferProcess.do" method="post" name="signup" onsubmit="return checkForm()">
 			               <div class="row g-3">
 			                   <div class="col-md-12">
-			                       <select name="type" class="form-control border-0 bg-light">
+			                       <select name="bankname" class="form-control border-0 bg-light">
 			                           <option class="form-control border-0 bg-light" value="none">은행 선택</option>
-			                           <option class="form-control border-0 bg-light" value="재철">J Bank</option>
-			                           <option class="form-control border-0 bg-light" value="선">Sunny Bank</option>
-			                           <option class="form-control border-0 bg-light" value="수민">SM Bank</option>
+			                           <option class="form-control border-0 bg-light" value="J은행">J은행</option>
+			                           <option class="form-control border-0 bg-light" value="써니은행">써니은행</option>
+			                           <option class="form-control border-0 bg-light" value="MORE뱅크">MORE뱅크</option>
 			                       </select>
 			                   </div>
 			                   <div class="col-md-12">
@@ -95,7 +102,7 @@
 			                   </div>
 			                   <div class="col-md-12">
 			                       <select name="send" class="form-control border-0 bg-light">
-			                           <option class="form-control border-0 bg-light" value="none">보낼 계좌를 선택</option>
+			                           <option class="form-control border-0 bg-light" value="none">출금 계좌를 선택</option>
 			                           <c:forEach items="${ accountList }" var="account">
 				                           <option class="form-control border-0 bg-light" value="${ account.accountNo }">${ account.accountNo }</option>			                           
 			                           </c:forEach>
@@ -103,8 +110,8 @@
 			                   </div>
 			                   <div class="col-md-12">
 			                       <div class="form-floating">
-			                           <input type="text" class="form-control border-0 bg-light" name="receive" placeholder="받을 계좌번호">
-			                           <label for="receive">받을 계좌번호</label>
+			                           <input type="text" class="form-control border-0 bg-light" name="receive" placeholder="입금 계좌번호">
+			                           <label for="receive">입금 계좌번호</label>
 			                       </div>
 			                   </div>
 			                   <div class="col-md-12">

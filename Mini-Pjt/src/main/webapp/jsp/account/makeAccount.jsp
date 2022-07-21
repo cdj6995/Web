@@ -40,6 +40,7 @@
            <p class="mb-4">계좌개설 후 입출금, 다양한 금융상품 및 이벤트를 즐기세요.</p>
            <form action="${ pageContext.request.contextPath }/makeAccountProcess.do" method="post" name="signup" onsubmit="return checkForm()">
            	   <input type="hidden" name="id" value="${ sessionScope.userVO.id }" >
+           	   <input type="hidden" name="tel" value="${ sessionScope.userVO.tel }" >
                <div class="row g-3">
                    <div class="col-md-12">
                        <div class="form-floating">

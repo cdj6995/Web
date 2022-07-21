@@ -183,6 +183,12 @@
                        </div>
                    </div>
                    <div class="col-12">
+                       <div class="form-floating">
+                           <input type="text" class="form-control border-0 bg-light" id="sample4_extraAddress" name="extraAddress" placeholder="extraAddress">
+                           <label for="extraAddress">(참고항목)</label>
+                       </div>
+                   </div>
+                   <div class="col-12">
                        <button class="btn btn-primary py-3 px-5" type="submit">회원가입</button>
                    </div>
                </div>

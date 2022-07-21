@@ -39,11 +39,9 @@
 		                            <p>${ account.name }</p>
 		                            <p>${ account.accountNo }</p>
 		                            <h5 class="mb-3"><i class="fa-solid fa-coins text-primary"></i> ${ account.balance }</h5>
-	                                <a href="${ pageContext.request.contextPath }/transfer.do?accountno=${account.accountNo}" class="btn btn-outline-primary border-2" href="">이체</a>
-	                                <a href="" class="btn btn-outline-primary border-2" href="">거래내역</a>
+	                                <a href="${ pageContext.request.contextPath }/transfer.do" class="btn btn-outline-primary border-2" href="">이체</a>
+	                                <a href="${ pageContext.request.contextPath }/history.do?accountNo=${ account.accountNo }" class="btn btn-outline-primary border-2" href="">거래내역</a>
 		                        </div>
-		                        
-		                        
 		                    </div>
 		                </div>	            	
 	            	</c:forEach>

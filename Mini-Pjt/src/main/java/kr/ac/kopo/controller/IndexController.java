@@ -16,16 +16,15 @@ public class IndexController implements Controller {
 	
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		System.out.println("wowowow");
 		
 		HttpSession session = request.getSession(false);
 		service = new AccountService();
 		
 		if(session.getAttribute("userVO") != null) {
 			MemberVO userVO = (MemberVO)session.getAttribute("userVO");
-			String id = userVO.getId();
+			String tel = userVO.getTel();
 			
-			List<AccountVO> accountList = service.searchAccount(id);
+			List<AccountVO> accountList = service.searchAccount(tel);
 			
 			request.setAttribute("accountList", accountList);
 			return "/";

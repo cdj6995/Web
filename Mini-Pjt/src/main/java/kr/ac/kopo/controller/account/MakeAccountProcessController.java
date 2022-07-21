@@ -21,18 +21,20 @@ public class MakeAccountProcessController implements Controller {
 		account = new AccountVO();
 		
 		String id = request.getParameter("id");
+		String tel = request.getParameter("tel");
 		String type = request.getParameter("type");
 		String sname = request.getParameter("sname");
 		String password = request.getParameter("password");
 		
 		account.setId(id);
+		account.setTel(tel);
 		account.setType(type);
 		account.setName(sname);
 		account.setPassword(password);
 		
 		service.insert(account);
 		
-		return "redirect:/";
+		return "redirect:/index.do";
 	}
 
 }

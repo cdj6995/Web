@@ -12,7 +12,7 @@ public class MemberDAO {
 	
 	public MemberDAO() {
 		session = new MyConfig().getInstance();
-		System.out.println("session : " + session);
+		/* System.out.println("session : " + session); */
 	}
 	
 	/**
@@ -22,6 +22,14 @@ public class MemberDAO {
 		session.insert("dao.MemberDAO.insertMember", member);
 		session.commit();
 		System.out.println("삽입 완료");
+	}
+	
+	/**
+	 * 회원정보 가져오기
+	 */
+	public MemberVO getUser(String id) {
+		MemberVO member = session.selectOne("dao.MemberDAO.getById", id);
+		return member;
 	}
 	
 	/**
@@ -39,6 +47,31 @@ public class MemberDAO {
 		}
 		
 		return null;
+	}
+	/**
+	 * 카카오로그인
+	 */
+	public MemberVO apiLogin(String name, String email) {
+		MemberVO vo = new MemberVO();
+		vo.setName(name);
+		vo.setEmail(email);
+		
+		MemberVO member = session.selectOne("dao.MemberDAO.selectByName", vo);
+		
+		if(member != null) {
+			return member;
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * 오픈뱅킹 가입
+	 */
+	public void updateOpenBank(String id) {
+		System.out.println("들어가기 직전");
+		session.update("dao.MemberDAO.updateOpenBank", id);
+		session.commit();
 	}
 	
 	

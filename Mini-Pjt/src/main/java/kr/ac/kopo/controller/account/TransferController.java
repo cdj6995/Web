@@ -24,10 +24,10 @@ public class TransferController implements Controller {
 		if(session.getAttribute("userVO") != null) {
 			MemberVO userVO = (MemberVO)session.getAttribute("userVO");
 			
-			String id = userVO.getId();
+			String tel = userVO.getTel();
 			
 			service = new AccountService();
-			List<AccountVO> accountList = service.searchAccount(id);
+			List<AccountVO> accountList = service.searchOpenAccount(tel);
 			
 			request.setAttribute("accountList", accountList);
 						

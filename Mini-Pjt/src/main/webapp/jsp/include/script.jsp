@@ -7,6 +7,10 @@
 <script src="/Mini-Pjt/resources/lib/easing/easing.min.js"></script>
 <script src="/Mini-Pjt/resources/lib/waypoints/waypoints.min.js"></script>
 <script src="/Mini-Pjt/resources/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 
 <!-- Template Javascript -->
 <script src="/Mini-Pjt/resources/js/main.js"></script>
+<script src="/Mini-Pjt/resources/js/KakaoLogin.js"></script>
+<script src="/Mini-Pjt/resources/js/NaverLogin.js"></script>

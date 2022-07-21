@@ -11,6 +11,7 @@
 		<result column="gender" property="gender"/>
 		<result column="tel" property="tel"/>
 		<result column="email" property="email"/>
+		<result column="openbank" property="openBank"/>
 		<result column="post" property="post"/>
 		<result column="basic_addr" property="addr"/>
 		<result column="detail_addr" property="datailaddr"/>
@@ -22,10 +23,12 @@
 		 values(#{id}, #{name}, #{password}, #{gender}, #{tel}, #{email}, #{post}, #{addr}, #{detailaddr})
 	</insert>
 	
-
+	<update id="updateOpenBank" parameterType="string">
+		update pjt_customer set  openbank = 'T' where id = #{id}
+	</update>
 
 	<sql id="selectAll">
-		select id, name, password, gender, tel, email, post, basic_addr, detail_addr, to_char(regdate, 'YYYY/MM/DD') regdate
+		select id, name, password, gender, tel, email, openbank, post, basic_addr, detail_addr, to_char(regdate, 'YYYY/MM/DD') regDate
 		from pjt_customer
 	</sql>
 
@@ -33,66 +36,17 @@
 		<include refid="selectAll" />
 		where id = #{id}
 	</select>
-<!-- 
+	
+	<select id="getById" resultType="MemberVO" parameterType="string">
+		<include refid="selectAll" />
+		 where id = #{id}
+	</select>
+	
+	<select id="selectByName" resultType="MemberVO" parameterType="MemberVO">
+		<include refid="selectAll" />
+		where name = #{name} and email = #{email}
+	</select>
+	
 
-	<select id="selectAllBoard" resultType="boardVO">
-		<include refid="selectAll" />
-		order by no desc
-	</select>
-	
-	<select id="selectByNo" resultType="boardVO" parameterType="int">
-		<include refid="selectAll" />
-		where no = #{no}
-	</select>
-	
-	
-	<select id="selectByNo3" parameterType="boardVO" resultMap="boardMap">
-		select * from t_board
-		where no = #{no}
-	</select>
-	
-	<select id="selectWhere" resultType="boardVO" parameterType="string">
-		<include refid="selectAll" />
-		where title like '%' || #{title} || '%'
-		where title like '%${title}%'
-	</select>
-	
-	<select id="selectWhere2" resultType="boardVO" parameterType="string">
-		<include refid="selectAll" />
-		<where>
-			<if test="title != null">
-				title = #{title}			
-			</if>
-			<if test="writer != null">
-				and writer = #{writer}
-			</if>
-		</where>
-	</select>
-	
-	<select id="selectNos" parameterType="boardVO" resultType="boardVO">
-		<include refid="selectAll" />
-		where no in
-		<foreach collection="nos" item="bno" open="(" separator="," close=")">
-			#{bno}
-		</foreach>
-	</select>
-	
-	<select id="selectNos2" parameterType="int[]" resultType="boardVO">
-		<include refid="selectAll" />
-		where no in
-		<foreach collection="array" item="arr" open="(" separator="," close=")">
-			#{arr}
-		</foreach>
-	</select>
-	
-	<select id="selectMap" parameterType="map" resultType="boardVO">
-		<include refid="selectAll" />
-		where title = #{title} and writer = #{writer}
-	</select>
-	
-	<select id="selectMap2" parameterType="int" resultType="map">
-		<include refid="selectAll" />
-		where no = #{no}
-	</select> -->
 	
 </mapper>
