@@ -19,6 +19,7 @@ public class MemberDAO {
 	 * 회원가입
 	 */
 	public void insert(MemberVO member) {
+		System.out.println(1);
 		session.insert("dao.MemberDAO.insertMember", member);
 		session.commit();
 		System.out.println("삽입 완료");
@@ -40,7 +41,14 @@ public class MemberDAO {
 		vo.setId(id);
 		vo.setPassword(password);
 		
-		MemberVO member = session.selectOne("dao.MemberDAO.selectById", vo);
+		System.out.println("@@@@");
+		MemberVO member = null;
+		try {
+			member = session.selectOne("dao.MemberDAO.selectById", vo);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("####");
 		
 		if(member != null) {
 			return member;

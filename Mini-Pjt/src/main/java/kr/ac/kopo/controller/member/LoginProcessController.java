@@ -23,6 +23,7 @@ public class LoginProcessController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
+		System.out.println("!!!");
 		request.setCharacterEncoding("utf-8");
 		
 		String kakaoName = request.getParameter("kakaoName");
