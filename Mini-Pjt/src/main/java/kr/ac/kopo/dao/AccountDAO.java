@@ -39,14 +39,16 @@ public class AccountDAO {
 	
 	public List<AccountVO> searchOpenAccount(String tel){
 		List<AccountVO> accountList = session.selectList("dao.AccountDAO.selectById", tel);
-		List<AccountVO> accountList1 = session.selectList("dao.AccountDAO.selectById1", tel);
-		List<AccountVO> accountList2 = session.selectList("dao.AccountDAO.selectById2", tel);
-		List<AccountVO> accountList4 = session.selectList("dao.AccountDAO.selectById4", tel);
-		
-		accountList.addAll(accountList1);
-		accountList.addAll(accountList2);
-		accountList.addAll(accountList4);
-		
+		/*
+		 * List<AccountVO> accountList1 =
+		 * session.selectList("dao.AccountDAO.selectById1", tel); List<AccountVO>
+		 * accountList2 = session.selectList("dao.AccountDAO.selectById2", tel);
+		 * List<AccountVO> accountList4 =
+		 * session.selectList("dao.AccountDAO.selectById4", tel);
+		 * 
+		 * accountList.addAll(accountList1); accountList.addAll(accountList2);
+		 * accountList.addAll(accountList4);
+		 */
 		return accountList;
 	}
 	
@@ -58,6 +60,24 @@ public class AccountDAO {
 		
 		AccountVO account = session.selectOne("dao.AccountDAO.selectOne", accountno);
 		return account;
+	}
+	
+	/**
+	 * 입금하기
+	 */
+	public void input(Map<String, String> inputMap) {
+		session.update("dao.AccountDAO.plusTransfer", inputMap);
+		session.commit();
+		System.out.println("입금완료");
+	}
+	
+	/**
+	 * 출금하기
+	 */
+	public void output(Map<String, String> outputMap) {
+		session.update("dao.AccountDAO.minusTransfer", outputMap);
+		session.commit();
+		System.out.println("출금완료");
 	}
 	
 	/**

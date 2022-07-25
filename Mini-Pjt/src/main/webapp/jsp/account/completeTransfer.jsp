@@ -16,7 +16,7 @@
 	<section>
 		<div class="container-fluid page-header py-5 my-3 mt-0 wow fadeIn" data-wow-delay="0.1s">
 	        <div class="container text-center">
-	            <h1 class="display-3 text-white animated slideInDown mb-4">송금 완료</h1>
+	            <h1 class="display-3 text-white animated slideInDown mb-4">성공적으로 완료하였습니다.</h1>
 	        </div>
 	    </div>
 	

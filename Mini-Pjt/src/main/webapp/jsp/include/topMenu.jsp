@@ -65,6 +65,8 @@
             	<div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">금융 서비스</a>
                     <div class="dropdown-menu bg-light m-0">
+                    	<a href="${ pageContext.request.contextPath }/accountInput.do" class="dropdown-item">입금</a>
+                    	<a href="${ pageContext.request.contextPath }/accountOutput.do" class="dropdown-item">출금</a>
 		                <a href="${ pageContext.request.contextPath }/accountSelect.do" class="dropdown-item">계좌조회</a>
 		                <a href="${ pageContext.request.contextPath }/transfer.do" class="dropdown-item">계좌이체</a>
 		                <c:choose>

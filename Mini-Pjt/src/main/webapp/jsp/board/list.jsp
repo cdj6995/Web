@@ -52,7 +52,6 @@
 			    
 				<p class="text-center">
 					<a href="">1&nbsp&nbsp</a>
-					<a href="">2&nbsp&nbsp</a>
 				</p>
     		</c:when>
     		<c:otherwise>

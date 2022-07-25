@@ -55,6 +55,47 @@ public class AccountService {
 	}
 	
 	/**
+	 * 입금하기
+	 */
+	public boolean input(String accountNo, String money, String password) {
+		boolean bool = accountDao.comparePassword(accountNo, password);
+
+		if(bool) {
+			Map<String, String> inputMap= new HashMap<>();
+			
+			inputMap.put("accountNo", accountNo);
+			inputMap.put("balance", money);
+			
+			accountDao.input(inputMap);
+			
+			return true;
+		}
+		
+		return false;
+	}
+	
+	/**
+	 * 출금하기
+	 */
+	public boolean output(String accountNo, String money, String password) {
+		boolean bool = accountDao.comparePassword(accountNo, password);
+
+		if(bool) {
+			Map<String, String> outputMap= new HashMap<>();
+			
+			outputMap.put("accountNo", accountNo);
+			outputMap.put("balance", money);
+			
+			accountDao.output(outputMap);
+			
+			return true;
+		}
+		
+		return false;
+	}
+	
+	
+	/**
 	 * 당행 이체하기
 	 */
 	public boolean transfer(String sendAccount, String receiveAccount, String money, String password) {

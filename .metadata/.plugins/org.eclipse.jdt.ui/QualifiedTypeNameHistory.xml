@@ -34,7 +34,6 @@
     <fullyQualifiedTypeName name="kr.ac.kopo.service.BoardService"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
     <fullyQualifiedTypeName name="kr.ac.kopo.dao.BoardDAO"/>
-    <fullyQualifiedTypeName name="kr.ac.kopo.service.AccountService"/>
     <fullyQualifiedTypeName name="kr.ac.kopo.vo.AccountVO"/>
     <fullyQualifiedTypeName name="kr.ac.kopo.service.MemberService"/>
     <fullyQualifiedTypeName name="kr.ac.kopo.vo.MemberVO"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
     <fullyQualifiedTypeName name="kr.ac.kopo.framework.ModelAndView"/>
     <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="kr.ac.kopo.service.AccountService"/>
 </qualifiedTypeNameHistroy>

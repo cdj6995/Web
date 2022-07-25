@@ -20,19 +20,22 @@ public class TransferController implements Controller {
 		
 		
 		HttpSession session = request.getSession();
+		service = new AccountService();
 		
 		if(session.getAttribute("userVO") != null) {
 			MemberVO userVO = (MemberVO)session.getAttribute("userVO");
 			
 			String tel = userVO.getTel();
 			
-			service = new AccountService();
+			System.out.println(tel);
 			List<AccountVO> accountList = service.searchOpenAccount(tel);
+			System.out.println(2);
 			
 			request.setAttribute("accountList", accountList);
 						
-		}
-		return "/jsp/account/transfer.jsp";
+			return "/jsp/account/transfer.jsp";
+		}		
+		return "redirect:/login.do";
 	}
 
 }

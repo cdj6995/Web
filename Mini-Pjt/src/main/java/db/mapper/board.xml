@@ -35,6 +35,7 @@
 	
 	<select id="selectAllBoard" resultType="BoardVO">
 		<include refid="selectAll" />
+		 order by no
 	</select>
 	
 	<update id="updateViewCnt" parameterType="int">
